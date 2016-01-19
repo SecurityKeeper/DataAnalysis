@@ -74,7 +74,7 @@
 				20AB60351C48BC7400922C6D /* LogRegression.h */,
 				20AB60331C48BC6700922C6D /* LogRegression.m */,
 			);
-			name = LogisticRegression;
+			path = LogisticRegression;
 			sourceTree = "<group>";
 		};
 		20B0DFD71C4782C100D32EE8 = {
