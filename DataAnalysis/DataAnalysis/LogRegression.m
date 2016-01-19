@@ -29,7 +29,7 @@ float sigmoid(float x) {
 }
 
 /*
-     随机梯度上升算法：arrIn为特征矩阵，m行n列。
+     随机梯度上升算法：arrIn为特征矩阵，rows行cols列。
      classLabels为分类结果，用0，1表示
      numIter为迭代次数
      返回最佳参数
