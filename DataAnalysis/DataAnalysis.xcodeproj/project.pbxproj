@@ -68,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20AA69F01C4E09DA00326D00 /* LogisticRegression */ = {
+			isa = PBXGroup;
+			children = (
+				20AB60351C48BC7400922C6D /* LogRegression.h */,
+				20AB60331C48BC6700922C6D /* LogRegression.m */,
+			);
+			name = LogisticRegression;
+			sourceTree = "<group>";
+		};
 		20B0DFD71C4782C100D32EE8 = {
 			isa = PBXGroup;
 			children = (
@@ -90,12 +99,11 @@
 		20B0DFE21C4782C100D32EE8 /* DataAnalysis */ = {
 			isa = PBXGroup;
 			children = (
+				20AA69F01C4E09DA00326D00 /* LogisticRegression */,
 				20B0DFE71C4782C100D32EE8 /* AppDelegate.h */,
 				20B0DFE81C4782C100D32EE8 /* AppDelegate.m */,
 				20B0DFEA1C4782C100D32EE8 /* ViewController.h */,
 				20B0DFEB1C4782C100D32EE8 /* ViewController.m */,
-				20AB60351C48BC7400922C6D /* LogRegression.h */,
-				20AB60331C48BC6700922C6D /* LogRegression.m */,
 				20681B601C47C9F30071A488 /* testSet.txt */,
 				20B0DFED1C4782C100D32EE8 /* Main.storyboard */,
 				20B0DFF01C4782C100D32EE8 /* Images.xcassets */,

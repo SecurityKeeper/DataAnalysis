@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "LogRegression.h"
-
+/*
+    从文件加载数据至数组，testSet为训练数据集
+ */
 void loadData(NSMutableArray *data,NSMutableArray *labels) {
     float x1,x2,label;
     NSString *path = [[NSBundle mainBundle]pathForResource:@"testSet" ofType:@"txt"];
@@ -30,6 +32,7 @@ float sigmoid(float x) {
      随机梯度上升算法：arrIn为特征矩阵，m行n列。
      classLabels为分类结果，用0，1表示
      numIter为迭代次数
+     返回最佳参数
  */
 NSArray* storGradAscent(NSArray* arrIn,int rows,int cols,NSArray* labels,int numIter) {
     NSMutableArray *weights = [[NSMutableArray alloc]init];
