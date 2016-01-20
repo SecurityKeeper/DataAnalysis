@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Accelerate/Accelerate.h>
 #import "LogRegression.h"
+#import "DAClustering.h"
 
 @interface ViewController ()
 
@@ -36,6 +37,20 @@
     
     float probability = sigmoid(w0 + w1*X1 + w2*X2);
     NSLog(@"%f",probability);
+    
+    
+    NSArray *data1 = @[@{@"x":@"1.3",@"y":@"3.0"},
+                       @{@"x":@"3.2",@"y":@"3.3"},
+                       @{@"x":@"1.42",@"y":@"3.3"},
+                       @{@"x":@"1.32",@"y":@"5.3"},
+                       @{@"x":@"1.22",@"y":@"13.3"},
+                       @{@"x":@"10.2",@"y":@"5.3"},
+                       @{@"x":@"12.2",@"y":@"3.31"},
+                       @{@"x":@"3.2",@"y":@"3.33"},
+                       @{@"x":@"5.2",@"y":@"3.23"},
+                       @{@"x":@"1.2",@"y":@"2.3"},
+                       @{@"x":@"1.32",@"y":@"3.3"}];
+    [[DAClustering sharedInstance] clusteringData:data1];
 }
 
 @end
