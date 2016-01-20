@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F30FF321C4E58B00071EF62 /* DAClustering.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F30FF311C4E58B00071EF62 /* DAClustering.m */; };
 		20681B611C47C9F30071A488 /* testSet.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20681B601C47C9F30071A488 /* testSet.txt */; };
 		20AB60341C48BC6700922C6D /* LogRegression.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AB60331C48BC6700922C6D /* LogRegression.m */; };
 		20B0DFE61C4782C100D32EE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B0DFE51C4782C100D32EE8 /* main.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F30FF301C4E58B00071EF62 /* DAClustering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAClustering.h; sourceTree = "<group>"; };
+		0F30FF311C4E58B00071EF62 /* DAClustering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAClustering.m; sourceTree = "<group>"; };
 		20681B601C47C9F30071A488 /* testSet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testSet.txt; sourceTree = "<group>"; };
 		20AB60331C48BC6700922C6D /* LogRegression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogRegression.m; sourceTree = "<group>"; };
 		20AB60351C48BC7400922C6D /* LogRegression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogRegression.h; sourceTree = "<group>"; };
@@ -68,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F30FF2F1C4E56F00071EF62 /* Clustering */ = {
+			isa = PBXGroup;
+			children = (
+				0F30FF301C4E58B00071EF62 /* DAClustering.h */,
+				0F30FF311C4E58B00071EF62 /* DAClustering.m */,
+			);
+			path = Clustering;
+			sourceTree = "<group>";
+		};
 		20AA69F01C4E09DA00326D00 /* LogisticRegression */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +111,7 @@
 		20B0DFE21C4782C100D32EE8 /* DataAnalysis */ = {
 			isa = PBXGroup;
 			children = (
+				0F30FF2F1C4E56F00071EF62 /* Clustering */,
 				20AA69F01C4E09DA00326D00 /* LogisticRegression */,
 				20B0DFE71C4782C100D32EE8 /* AppDelegate.h */,
 				20B0DFE81C4782C100D32EE8 /* AppDelegate.m */,
@@ -183,8 +196,9 @@
 		20B0DFD81C4782C100D32EE8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DA;
 				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = dengjc;
+				ORGANIZATIONNAME = SecurityKeeper;
 				TargetAttributes = {
 					20B0DFDF1C4782C100D32EE8 = {
 						CreatedOnToolsVersion = 6.4;
@@ -241,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20B0DFEC1C4782C100D32EE8 /* ViewController.m in Sources */,
+				0F30FF321C4E58B00071EF62 /* DAClustering.m in Sources */,
 				20AB60341C48BC6700922C6D /* LogRegression.m in Sources */,
 				20B0DFE91C4782C100D32EE8 /* AppDelegate.m in Sources */,
 				20B0DFE61C4782C100D32EE8 /* main.m in Sources */,
@@ -370,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DataAnalysis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -380,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DataAnalysis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
