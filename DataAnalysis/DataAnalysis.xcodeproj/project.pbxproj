@@ -18,6 +18,9 @@
 		20B0DFF41C4782C100D32EE8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20B0DFF21C4782C100D32EE8 /* LaunchScreen.xib */; };
 		20B0E0001C4782C100D32EE8 /* DataAnalysisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B0DFFF1C4782C100D32EE8 /* DataAnalysisTests.m */; };
 		20B0E00A1C4782D100D32EE8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B0E0091C4782D100D32EE8 /* Accelerate.framework */; };
+		D1A3EA171C4F2485001D102C /* LinearRegression.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A3EA161C4F2485001D102C /* LinearRegression.m */; };
+		D1A3EA1A1C4F26B2001D102C /* chlkFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A3EA191C4F26B2001D102C /* chlkFunction.m */; };
+		D1A3EA1C1C4F3BFE001D102C /* setData.txt in Resources */ = {isa = PBXBuildFile; fileRef = D1A3EA1B1C4F3BFE001D102C /* setData.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,11 @@
 		20B0DFFE1C4782C100D32EE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20B0DFFF1C4782C100D32EE8 /* DataAnalysisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataAnalysisTests.m; sourceTree = "<group>"; };
 		20B0E0091C4782D100D32EE8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D1A3EA151C4F2485001D102C /* LinearRegression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearRegression.h; sourceTree = "<group>"; };
+		D1A3EA161C4F2485001D102C /* LinearRegression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearRegression.m; sourceTree = "<group>"; };
+		D1A3EA181C4F26B2001D102C /* chlkFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chlkFunction.h; sourceTree = "<group>"; };
+		D1A3EA191C4F26B2001D102C /* chlkFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chlkFunction.m; sourceTree = "<group>"; };
+		D1A3EA1B1C4F3BFE001D102C /* setData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = setData.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,7 @@
 			children = (
 				0F30FF2F1C4E56F00071EF62 /* Clustering */,
 				20AA69F01C4E09DA00326D00 /* LogisticRegression */,
+				D1A3EA141C4F2273001D102C /* LinearRegression */,
 				20B0DFE71C4782C100D32EE8 /* AppDelegate.h */,
 				20B0DFE81C4782C100D32EE8 /* AppDelegate.m */,
 				20B0DFEA1C4782C100D32EE8 /* ViewController.h */,
@@ -150,6 +159,19 @@
 				20B0DFFE1C4782C100D32EE8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1A3EA141C4F2273001D102C /* LinearRegression */ = {
+			isa = PBXGroup;
+			children = (
+				D1A3EA151C4F2485001D102C /* LinearRegression.h */,
+				D1A3EA161C4F2485001D102C /* LinearRegression.m */,
+				D1A3EA181C4F26B2001D102C /* chlkFunction.h */,
+				D1A3EA191C4F26B2001D102C /* chlkFunction.m */,
+				D1A3EA1B1C4F3BFE001D102C /* setData.txt */,
+			);
+			name = LinearRegression;
+			path = LogisticRegression;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20B0DFEF1C4782C100D32EE8 /* Main.storyboard in Resources */,
+				D1A3EA1C1C4F3BFE001D102C /* setData.txt in Resources */,
 				20681B611C47C9F30071A488 /* testSet.txt in Resources */,
 				20B0DFF41C4782C100D32EE8 /* LaunchScreen.xib in Resources */,
 				20B0DFF11C4782C100D32EE8 /* Images.xcassets in Resources */,
@@ -257,6 +280,8 @@
 				20B0DFEC1C4782C100D32EE8 /* ViewController.m in Sources */,
 				0F30FF321C4E58B00071EF62 /* DAClustering.m in Sources */,
 				20AB60341C48BC6700922C6D /* LogRegression.m in Sources */,
+				D1A3EA1A1C4F26B2001D102C /* chlkFunction.m in Sources */,
+				D1A3EA171C4F2485001D102C /* LinearRegression.m in Sources */,
 				20B0DFE91C4782C100D32EE8 /* AppDelegate.m in Sources */,
 				20B0DFE61C4782C100D32EE8 /* main.m in Sources */,
 			);
