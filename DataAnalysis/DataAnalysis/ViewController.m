@@ -27,20 +27,24 @@
     NSMutableArray *dataX = [[NSMutableArray alloc]init];
     NSMutableArray *dataY = [[NSMutableArray alloc]init];
     
-    loadData(data, label);
+    int cols = loadData(data, label);
     NSLog(@"%lu",(unsigned long)data.count);
-    int rows = (int)data.count/3;
-    NSArray *weights = storGradAscent(data, rows, 3, label, 300);
-    
-    float w0 = [weights[0] floatValue];
-    float w1 = [weights[1] floatValue];
-    float w2 = [weights[2] floatValue];
-    
-    float X1 = 3.0;
-    float X2 = 4.0;
-    
-    float probability = sigmoid(w0 + w1*X1 + w2*X2);
-    NSLog(@"%f",probability);
+    int rows = (int)data.count/cols;
+    NSArray *weights = storGradAscent(data, rows, cols, label, 500);
+    NSLog(@"---------------------------------------------");
+    for (id weight in weights) {
+        NSLog(@"%f",[weight floatValue]);
+    }
+    NSLog(@"---------------------------------------------");
+//    float w0 = [weights[0] floatValue];
+//    float w1 = [weights[1] floatValue];
+//    float w2 = [weights[2] floatValue];
+//    
+//    float X1 = 3.0;
+//    float X2 = 4.0;
+//    
+//    float probability = sigmoid(w0 + w1*X1 + w2*X2);
+//    NSLog(@"probability = %f",probability);
     
     NSArray *data1 = @[@{@"x":@"1.3",@"y":@"3.0"},
                        @{@"x":@"3.2",@"y":@"3.3"},

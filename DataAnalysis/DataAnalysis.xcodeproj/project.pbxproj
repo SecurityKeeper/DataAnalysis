@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F30FF321C4E58B00071EF62 /* DAClustering.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F30FF311C4E58B00071EF62 /* DAClustering.m */; };
+		20075FBC1C589BB600CDC45F /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20075FBB1C589BB600CDC45F /* data.txt */; };
 		20681B611C47C9F30071A488 /* testSet.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20681B601C47C9F30071A488 /* testSet.txt */; };
 		20AB60341C48BC6700922C6D /* LogRegression.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AB60331C48BC6700922C6D /* LogRegression.m */; };
 		20B0DFE61C4782C100D32EE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B0DFE51C4782C100D32EE8 /* main.m */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		0F30FF301C4E58B00071EF62 /* DAClustering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAClustering.h; sourceTree = "<group>"; };
 		0F30FF311C4E58B00071EF62 /* DAClustering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAClustering.m; sourceTree = "<group>"; };
+		20075FBB1C589BB600CDC45F /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
 		20681B601C47C9F30071A488 /* testSet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testSet.txt; sourceTree = "<group>"; };
 		20AB60331C48BC6700922C6D /* LogRegression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogRegression.m; sourceTree = "<group>"; };
 		20AB60351C48BC7400922C6D /* LogRegression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogRegression.h; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				20B0DFEA1C4782C100D32EE8 /* ViewController.h */,
 				20B0DFEB1C4782C100D32EE8 /* ViewController.m */,
 				20681B601C47C9F30071A488 /* testSet.txt */,
+				20075FBB1C589BB600CDC45F /* data.txt */,
 				20B0DFED1C4782C100D32EE8 /* Main.storyboard */,
 				20B0DFF01C4782C100D32EE8 /* Images.xcassets */,
 				20B0DFF21C4782C100D32EE8 /* LaunchScreen.xib */,
@@ -259,6 +262,7 @@
 				D1A3EA1C1C4F3BFE001D102C /* setData.txt in Resources */,
 				20681B611C47C9F30071A488 /* testSet.txt in Resources */,
 				20B0DFF41C4782C100D32EE8 /* LaunchScreen.xib in Resources */,
+				20075FBC1C589BB600CDC45F /* data.txt in Resources */,
 				20B0DFF11C4782C100D32EE8 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

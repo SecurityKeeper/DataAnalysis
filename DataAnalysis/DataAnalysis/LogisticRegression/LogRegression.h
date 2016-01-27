@@ -8,7 +8,7 @@
 #ifndef __DataAnalysis__LogRegression__
 #define __DataAnalysis__LogRegression__
 
-void loadData(NSMutableArray *data,NSMutableArray *labels);
+int loadData(NSMutableArray *data,NSMutableArray *labels);
 
 float sigmoid(float x);
 

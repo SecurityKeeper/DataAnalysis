@@ -8,20 +8,36 @@
 
 #import <Foundation/Foundation.h>
 #import "LogRegression.h"
+
 /*
-    从文件加载数据至数组，testSet为训练数据集
+    从文件加载数据至数组，testSet为训练数据集,返回文件列数（特征数）
  */
-void loadData(NSMutableArray *data,NSMutableArray *labels) {
-    float x1,x2,label;
-    NSString *path = [[NSBundle mainBundle]pathForResource:@"testSet" ofType:@"txt"];
-    FILE *file = fopen([path cStringUsingEncoding:NSASCIIStringEncoding], "r");
-    while (!feof(file)) {
-        fscanf(file, "%f %f %f ", &x1, &x2, &label);
+int loadData(NSMutableArray *data,NSMutableArray *labels) {
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"data" ofType:@"txt"];
+    NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSMutableArray *lineArr = [NSMutableArray arrayWithArray:[content componentsSeparatedByString:@"\n"]];
+    [lineArr removeLastObject];
+    int cols = 0;
+    for (NSString *line in lineArr) {
+        NSArray *compArr = [line componentsSeparatedByString:@" "];
+        cols = (int)compArr.count;
+        
         [data addObject:@(1.0)];
-        [data addObject:@(x1)];
-        [data addObject:@(x2)];
-        [labels addObject:@(label)];
+        for (int i=0; i<compArr.count - 1; i++) {
+            [data addObject:@([compArr[i] floatValue])];
+        }
+        [labels addObject:@([[compArr lastObject]floatValue])];
     }
+    
+//    FILE *file = fopen([path cStringUsingEncoding:NSASCIIStringEncoding], "r");
+//    while (!feof(file)) {
+//        fscanf(file, "%f %f %f ", &x1, &x2, &label);
+//        [data addObject:@(1.0)];
+//        [data addObject:@(x1)];
+//        [data addObject:@(x2)];
+//        [labels addObject:@(label)];
+//    }
+    return cols;
 }
 
 float sigmoid(float x) {
