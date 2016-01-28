@@ -120,7 +120,7 @@ static DAClustering *clusterInstance = nil;
     return retArray;
 }
 
-- (NSArray *)clusteringData:(NSArray *)data
+- (NSArray *)clusteringData:(NSArray *)data type:(kClusteringType)type
 {
     NSMutableArray *centerArray = [NSMutableArray array];
     NSMutableArray *tempArray = [NSMutableArray array];
@@ -154,18 +154,57 @@ static DAClustering *clusterInstance = nil;
         centerArray = [self reCenterArray:sortDataArray];
     }
     
-    NSMutableArray *retArray = [NSMutableArray array];
-    long clusterNum = 1;
-    for (NSMutableArray *clusterArray in sortDataArray) {
-        for (NSDictionary *item in clusterArray) {
-            NSMutableDictionary *tempItem = [NSMutableDictionary dictionaryWithDictionary:item];
-            [tempItem setObject:[NSNumber numberWithLong:clusterNum] forKey:@"cluster"];
-            [retArray addObject:tempItem];
+    switch (type) {
+        case kClusteringType_Grouped:
+        {
+            return sortDataArray;
         }
-        clusterNum++;
+            break;
+        case kClusteringType_Plain:
+        {
+            NSMutableArray *retArray = [NSMutableArray array];
+            long clusterNum = 1;
+            for (NSMutableArray *clusterArray in sortDataArray) {
+                for (NSDictionary *item in clusterArray) {
+                    NSMutableDictionary *tempItem = [NSMutableDictionary dictionaryWithDictionary:item];
+                    [tempItem setObject:[NSNumber numberWithLong:clusterNum] forKey:@"cluster"];
+                    [retArray addObject:tempItem];
+                }
+                clusterNum++;
+            }
+            
+            return retArray;
+        }
+            break;
+            
+        default:
+            break;
     }
-    
-    return retArray;
+}
+
+#pragma mark - Clustering Analysis
+
+- (float)checkData:(NSDictionary *)data set:(NSArray *)dataSet
+{
+    float weight = 0.0;
+    NSMutableArray *combinedData = [NSMutableArray arrayWithArray:dataSet];
+    [combinedData addObject:data];
+    long preKValue = [self getTargetKValue:dataSet];
+    long postKValue = [self getTargetKValue:combinedData];
+    if (preKValue != postKValue) {
+        weight = 1.0 / combinedData.count;
+    }
+    else
+    {
+        NSArray *clusteredArray = [self clusteringData:combinedData type:kClusteringType_Grouped];
+        for (NSArray *group in clusteredArray) {
+            if ([group containsObject:data]) {
+                weight = (float)group.count / combinedData.count;
+                break;
+            }
+        }
+    }
+    return weight;
 }
 
 @end

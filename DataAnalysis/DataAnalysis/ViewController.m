@@ -53,7 +53,7 @@
                        @{@"x":@"5.2",@"y":@"3.23"},
                        @{@"x":@"1.2",@"y":@"2.3"},
                        @{@"x":@"1.32",@"y":@"3.3"}];
-    [[DAClustering sharedInstance] clusteringData:data1];
+    NSLog(@"%f",[[DAClustering sharedInstance] checkData:@{@"x":@"1.3",@"y":@"5.0"} set:data1]);
 
     printf("\n######## 下面是线性回归部分 ########\n");
     /*线性归回部分*/
