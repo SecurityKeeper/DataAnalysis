@@ -11,6 +11,7 @@
 #include "stdlib.h"
 #import "chlkFunction.h"
 
+
 void regAnalysis(double *x,double *y,int m,int n,double *a,double *dt,double *v)
 {
     int i,j,k,mm;
@@ -58,7 +59,7 @@ void regAnalysis(double *x,double *y,int m,int n,double *a,double *dt,double *v)
             e=e+(y[i]-yy)*(y[i]-yy);
         }
     s=sqrt(q/n);     //平均标准偏差
-    r=sqrt(1-q/e);   // 相关系数
+    r=1-q/e;         // 可决定系数
     
     for (j=0; j<=m-1; j++)
     {   p=0.0;
@@ -73,9 +74,10 @@ void regAnalysis(double *x,double *y,int m,int n,double *a,double *dt,double *v)
     }
     dt[0]=q;    //剩余平方和
     dt[1]=s;    //平均标准偏差
-    dt[2]=r;    //相关系数
+    dt[2]=r;    //可决系数
     dt[3]=u;    //回归平方和
     dt[4]=e;    //总离差平方和
+ 
     free(b);
 }
 
@@ -90,4 +92,66 @@ void setData(NSMutableArray *dataX,NSMutableArray *dataY) {
         [dataX addObject:@(x3)];
         [dataY addObject:@(y)];
     }
+}
+
+void swap(double *a,double *b)
+{  double c;
+    c=*a;
+    *a=*b;
+    *b=c;
+}
+
+int DinV(double A[N][N],int n)
+{
+    int i,j,k;
+    double d;
+    int JS[N],IS[N];
+    for (k=0;k<n;k++)
+    {
+        d=0;
+        for (i=k;i<n;i++)
+            for (j=k;j<n;j++)
+            {
+                if (fabs(A[i][j])>d)
+                {
+                    d=fabs(A[i][j]);
+                    IS[k]=i;
+                    JS[k]=j;
+                }
+            }
+        if (d+1.0==1.0) return 0;
+        if (IS[k]!=k)
+            for (j=0;j<n;j++)
+                swap(&A[k][j],&A[IS[k]][j]);
+        if (JS[k]!=k)
+            for (i=0;i<n;i++)
+                swap(&A[i][k],&A[i][JS[k]]);
+        A[k][k]=1/A[k][k];
+        for (j=0;j<n;j++)
+            if (j!=k) A[k][j]=A[k][j]*A[k][k];
+        for (i=0;i<n;i++)
+            if (i!=k)
+                for (j=0;j<n;j++)
+                    if (j!=k) A[i][j]=A[i][j]-A[i][k]*A[k][j];
+        for (i=0;i<n;i++)
+            if (i!=k) A[i][k]=-A[i][k]*A[k][k];
+    }
+    for (k=n-1;k>=0;k--)
+    {
+        for (j=0;j<n;j++)
+            if (JS[k]!=k) swap(&A[k][j],&A[JS[k]][j]);
+        for (i=0;i<n;i++)
+            if (IS[k]!=k) swap(&A[i][k],&A[i][IS[k]]);
+    }
+    for (i=0;i<n;i++)
+    {
+        for (j=0;j<n;j++)
+        {
+//            printf("  %1.3f",A[i][j]);
+//            puts("");
+        
+        }
+    }
+
+    return 1;
 }

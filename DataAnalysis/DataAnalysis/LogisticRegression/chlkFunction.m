@@ -49,7 +49,7 @@ int chlk(double *a,int n,int m,double *d)
         d[j]=d[j]/a[0];
         for (i=1; i<=n-1; i++)
         {
-            u=i*n+i; v=i*m+j;
+                u=i*n+i; v=i*m+j;
                 for (k=1; k<=i; k++)
                     d[v]=d[v]-a[(k-1)*n+i]*d[(k-1)*m+j];
                 d[v]=d[v]/a[u];
