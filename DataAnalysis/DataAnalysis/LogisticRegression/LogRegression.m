@@ -10,7 +10,7 @@
 #import "LogRegression.h"
 
 /*
-    从文件加载数据至数组，testSet为训练数据集,返回文件列数（特征数）
+    从文件加载数据至数组，testSet为训练数据集,返回特征数
  */
 int loadData(NSMutableArray *data,NSMutableArray *labels) {
     NSString *path = [[NSBundle mainBundle]pathForResource:@"data" ofType:@"txt"];
@@ -28,7 +28,6 @@ int loadData(NSMutableArray *data,NSMutableArray *labels) {
         }
         [labels addObject:@([[compArr lastObject]floatValue])];
     }
-    
 //    FILE *file = fopen([path cStringUsingEncoding:NSASCIIStringEncoding], "r");
 //    while (!feof(file)) {
 //        fscanf(file, "%f %f %f ", &x1, &x2, &label);
