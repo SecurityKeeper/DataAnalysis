@@ -14,4 +14,7 @@ float sigmoid(float x);
 
 NSArray* storGradAscent(NSArray* arrIn,int rows,int cols,NSArray* labels,int numIter);
 
+float pi(float x,int k);//泊松分布
+
+float likeliHoodRatioTest(NSArray *data,NSArray *label,NSArray *weights,int cols);
 #endif /* defined(__DataAnalysis__LogRegression__) */

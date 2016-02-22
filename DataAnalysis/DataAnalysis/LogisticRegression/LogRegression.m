@@ -13,13 +13,13 @@
     从文件加载数据至数组，testSet为训练数据集,返回特征数
  */
 int loadData(NSMutableArray *data,NSMutableArray *labels) {
-    NSString *path = [[NSBundle mainBundle]pathForResource:@"data" ofType:@"txt"];
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"testSet" ofType:@"txt"];
     NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSMutableArray *lineArr = [NSMutableArray arrayWithArray:[content componentsSeparatedByString:@"\n"]];
+    NSMutableArray *lineArr = [NSMutableArray arrayWithArray:[content componentsSeparatedByString:@"\r\n"]];
     [lineArr removeLastObject];
     int cols = 0;
     for (NSString *line in lineArr) {
-        NSArray *compArr = [line componentsSeparatedByString:@" "];
+        NSArray *compArr = [line componentsSeparatedByString:@"\t"];
         cols = (int)compArr.count;
         
         [data addObject:@(1.0)];
@@ -28,6 +28,7 @@ int loadData(NSMutableArray *data,NSMutableArray *labels) {
         }
         [labels addObject:@([[compArr lastObject]floatValue])];
     }
+    
 //    FILE *file = fopen([path cStringUsingEncoding:NSASCIIStringEncoding], "r");
 //    while (!feof(file)) {
 //        fscanf(file, "%f %f %f ", &x1, &x2, &label);
@@ -78,3 +79,55 @@ NSArray* storGradAscent(NSArray* arrIn,int rows,int cols,NSArray* labels,int num
     }
     return weights;
 }
+
+//likeliHood ratio test
+float pi(float x,int k) {
+    long fac = 1;
+    for (int i=1; i<=k; i++) {
+        fac  *= i;
+    }
+    return pow(x, k)*exp(-x)/fac;
+}
+
+float likeliHoodRatioTest(NSArray *data,NSArray *label,NSArray *weights,int k) {
+    int n = (int)label.count;
+    int n0 = 0,n1 = 0;
+    for (int i = 0; i<n; i++) {
+        int tmp = [label[i]intValue];
+        if (tmp == 0) {
+            n0++;
+        } else {
+            n1++;
+        }
+    }
+    float G = 0.0;
+    for (int i=0; i<n; i++) {
+        float sum = 0.0;
+        for (int j=i*k,m=0; j<i*k+k; j++,m++) {
+            sum += [data[j]floatValue]*[weights[m]floatValue];
+        }
+        float pvalue = sigmoid(sum);
+        G += [label[i]floatValue]*log(pvalue) + (1-[label[i]floatValue])*log(1 - pvalue + 0.0001);
+    }
+    G = G - (n1*log(n1) + n0*log(n0) - n*log(n));
+    G *= 2;
+    NSLog(@"n0 = %d,n1 = %d,n = %d,G = %f",n0,n1,n,G);
+    return G;
+}
+
+//void f(){
+//    NSArray *array;
+//    BOOL isDownload = NO;//初始化为未下载
+//    for (NSDictionary *dic in array) {
+//        if ([[dic objectForKey:@"id"] isEqualToString:@"5270"]) {
+//            //已下载，置为YES
+//            isDownload = YES;
+//        }
+//    }
+//    
+//    if (isDownload) {
+//        //已下载
+//    } else {
+//        //未下载
+//    }
+//}
