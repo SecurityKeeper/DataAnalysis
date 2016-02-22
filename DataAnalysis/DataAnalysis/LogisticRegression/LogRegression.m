@@ -114,20 +114,3 @@ float likeliHoodRatioTest(NSArray *data,NSArray *label,NSArray *weights,int k) {
     NSLog(@"n0 = %d,n1 = %d,n = %d,G = %f",n0,n1,n,G);
     return G;
 }
-
-//void f(){
-//    NSArray *array;
-//    BOOL isDownload = NO;//初始化为未下载
-//    for (NSDictionary *dic in array) {
-//        if ([[dic objectForKey:@"id"] isEqualToString:@"5270"]) {
-//            //已下载，置为YES
-//            isDownload = YES;
-//        }
-//    }
-//    
-//    if (isDownload) {
-//        //已下载
-//    } else {
-//        //未下载
-//    }
-//}
