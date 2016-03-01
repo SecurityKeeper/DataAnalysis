@@ -173,8 +173,7 @@
 				D1A3EA191C4F26B2001D102C /* chlkFunction.m */,
 				D1A3EA1B1C4F3BFE001D102C /* setData.txt */,
 			);
-			name = LinearRegression;
-			path = LogisticRegression;
+			path = LinearRegression;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
