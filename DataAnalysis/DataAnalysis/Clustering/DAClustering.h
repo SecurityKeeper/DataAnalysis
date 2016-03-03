@@ -20,7 +20,7 @@ typedef enum : NSUInteger {
     float minDistance;
 }
 
-/*
+/**
  Instance Methods
  */
 + (id)sharedInstance;
@@ -52,7 +52,7 @@ typedef enum : NSUInteger {
  ]
  */
 - (NSArray *)clusteringData:(NSArray *)data type:(kClusteringType)type;
-/*
+/**
  return the K-value(the number of the clusters)
  */
 - (long)getTargetKValue:(NSArray *)data;
