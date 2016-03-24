@@ -26,16 +26,16 @@ typedef enum : NSUInteger {
 + (id)sharedInstance;
 + (void)destroyInstance;
 
-/*
- Using K-Mean to clustering the data set
- Data struct:
+/**
+ @abstract Using K-Mean to clustering the data set
+ @param Data struct:
  input = @[@{x:1.0, y:1.2, z:3.2 ...},
  @{x:1.0, y:1.2, z:3.2 ...},
  @{x:1.0, y:1.2, z:3.2 ...},
  ...
  @{x:1.0, y:1.2, z:3.2 ...},
  ]
- 
+ @return the clustered data set.
  PlainType:
  output = @[@{x:1.0, y:1.2, z:3.2 ... cluster:1},
  @{x:1.0, y:1.2, z:3.2 ... cluster:2},
@@ -52,13 +52,17 @@ typedef enum : NSUInteger {
  ]
  */
 - (NSArray *)clusteringData:(NSArray *)data type:(kClusteringType)type;
+
 /**
- return the K-value(the number of the clusters)
+ @abstract calculate the K-value
+ @param the data set
+ @return the K-value(the number of the clusters)
  */
 - (long)getTargetKValue:(NSArray *)data;
-/*
- Check the new data by original data set
- data:the new data with struct @{x:1.0, y:1.2, z:3.2 ...}
+
+/**
+ @abstract Check the new data by original data set
+ @param data:the new data with struct @{x:1.0, y:1.2, z:3.2 ...}
  dataSet:the original data set with struct 
  @[@{x:1.0, y:1.2, z:3.2 ...},
  @{x:1.0, y:1.2, z:3.2 ...},
@@ -66,8 +70,7 @@ typedef enum : NSUInteger {
  ...
  @{x:1.0, y:1.2, z:3.2 ...},
  ]
- 
- output:the weight of the new data
+ @return the weight of the new data
  */
 - (float)checkData:(NSDictionary *)data set:(NSArray *)dataSet;
 
