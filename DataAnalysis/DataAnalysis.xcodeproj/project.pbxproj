@@ -22,6 +22,7 @@
 		D1A3EA171C4F2485001D102C /* LinearRegression.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A3EA161C4F2485001D102C /* LinearRegression.m */; };
 		D1A3EA1A1C4F26B2001D102C /* chlkFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A3EA191C4F26B2001D102C /* chlkFunction.m */; };
 		D1A3EA1C1C4F3BFE001D102C /* setData.txt in Resources */ = {isa = PBXBuildFile; fileRef = D1A3EA1B1C4F3BFE001D102C /* setData.txt */; };
+		ECA180C81CAB69B1005BC691 /* DAAverageCalculate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA180C71CAB69B1005BC691 /* DAAverageCalculate.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		D1A3EA181C4F26B2001D102C /* chlkFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chlkFunction.h; sourceTree = "<group>"; };
 		D1A3EA191C4F26B2001D102C /* chlkFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chlkFunction.m; sourceTree = "<group>"; };
 		D1A3EA1B1C4F3BFE001D102C /* setData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = setData.txt; sourceTree = "<group>"; };
+		ECA180C61CAB69B1005BC691 /* DAAverageCalculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAverageCalculate.h; sourceTree = "<group>"; };
+		ECA180C71CAB69B1005BC691 /* DAAverageCalculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAverageCalculate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,7 @@
 		20B0DFE21C4782C100D32EE8 /* DataAnalysis */ = {
 			isa = PBXGroup;
 			children = (
+				ECA180C51CAB6981005BC691 /* AverageRegression */,
 				0F30FF2F1C4E56F00071EF62 /* Clustering */,
 				20AA69F01C4E09DA00326D00 /* LogisticRegression */,
 				D1A3EA141C4F2273001D102C /* LinearRegression */,
@@ -174,6 +178,15 @@
 				D1A3EA1B1C4F3BFE001D102C /* setData.txt */,
 			);
 			path = LinearRegression;
+			sourceTree = "<group>";
+		};
+		ECA180C51CAB6981005BC691 /* AverageRegression */ = {
+			isa = PBXGroup;
+			children = (
+				ECA180C61CAB69B1005BC691 /* DAAverageCalculate.h */,
+				ECA180C71CAB69B1005BC691 /* DAAverageCalculate.m */,
+			);
+			path = AverageRegression;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +298,7 @@
 				20AB60341C48BC6700922C6D /* LogRegression.m in Sources */,
 				D1A3EA1A1C4F26B2001D102C /* chlkFunction.m in Sources */,
 				D1A3EA171C4F2485001D102C /* LinearRegression.m in Sources */,
+				ECA180C81CAB69B1005BC691 /* DAAverageCalculate.m in Sources */,
 				20B0DFE91C4782C100D32EE8 /* AppDelegate.m in Sources */,
 				20B0DFE61C4782C100D32EE8 /* main.m in Sources */,
 			);
