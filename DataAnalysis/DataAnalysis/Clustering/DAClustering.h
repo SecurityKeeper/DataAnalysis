@@ -15,9 +15,10 @@ typedef enum : NSUInteger {
 
 @interface DAClustering : NSObject
 {
-    @private
+@private
     float averageDistance;
     float minDistance;
+    long maxSeedTime;
 }
 
 /**
@@ -63,7 +64,7 @@ typedef enum : NSUInteger {
 /**
  @abstract Check the new data by original data set
  @param data:the new data with struct @{x:1.0, y:1.2, z:3.2 ...}
- dataSet:the original data set with struct 
+ dataSet:the original data set with struct
  @[@{x:1.0, y:1.2, z:3.2 ...},
  @{x:1.0, y:1.2, z:3.2 ...},
  @{x:1.0, y:1.2, z:3.2 ...},
