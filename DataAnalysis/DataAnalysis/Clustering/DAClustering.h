@@ -53,11 +53,16 @@ typedef enum : NSUInteger {
  ]
  */
 - (NSArray *)clusteringData:(NSArray *)data type:(kClusteringType)type;
+<<<<<<< Updated upstream
 
 /**
  @abstract calculate the K-value
  @param the data set
  @return the K-value(the number of the clusters)
+=======
+/**
+ return the K-value(the number of the clusters)
+>>>>>>> Stashed changes
  */
 - (long)getTargetKValue:(NSArray *)data;
 
