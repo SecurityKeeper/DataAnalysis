@@ -54,7 +54,6 @@
 		20B0DFF91C4782C100D32EE8 /* DataAnalysisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataAnalysisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B0DFFE1C4782C100D32EE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20B0DFFF1C4782C100D32EE8 /* DataAnalysisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataAnalysisTests.m; sourceTree = "<group>"; };
-		20B0E0091C4782D100D32EE8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D1A3EA151C4F2485001D102C /* LinearRegression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearRegression.h; sourceTree = "<group>"; };
 		D1A3EA161C4F2485001D102C /* LinearRegression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearRegression.m; sourceTree = "<group>"; };
 		D1A3EA181C4F26B2001D102C /* chlkFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chlkFunction.h; sourceTree = "<group>"; };
@@ -103,7 +102,6 @@
 		20B0DFD71C4782C100D32EE8 = {
 			isa = PBXGroup;
 			children = (
-				20B0E0091C4782D100D32EE8 /* Accelerate.framework */,
 				20B0DFE21C4782C100D32EE8 /* DataAnalysis */,
 				20B0DFFC1C4782C100D32EE8 /* DataAnalysisTests */,
 				20B0DFE11C4782C100D32EE8 /* Products */,
