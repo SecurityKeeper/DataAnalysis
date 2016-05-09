@@ -18,18 +18,10 @@
 		20B0DFF11C4782C100D32EE8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20B0DFF01C4782C100D32EE8 /* Images.xcassets */; };
 		20B0DFF41C4782C100D32EE8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20B0DFF21C4782C100D32EE8 /* LaunchScreen.xib */; };
 		20B0E0001C4782C100D32EE8 /* DataAnalysisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B0DFFF1C4782C100D32EE8 /* DataAnalysisTests.m */; };
-		20B0E00A1C4782D100D32EE8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B0E0091C4782D100D32EE8 /* Accelerate.framework */; };
-		D19A511D1C8980ED0021EFC7 /* Data.txt in Resources */ = {isa = PBXBuildFile; fileRef = D19A511C1C8980ED0021EFC7 /* Data.txt */; };
-		D19A51201C8982DF0021EFC7 /* dataAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = D19A511F1C8982DF0021EFC7 /* dataAnalysis.m */; };
-		D19A51221C8982EE0021EFC7 /* Data.txt in Resources */ = {isa = PBXBuildFile; fileRef = D19A51211C8982EE0021EFC7 /* Data.txt */; };
-		D19A51251C8983180021EFC7 /* dataAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = D19A51241C8983180021EFC7 /* dataAnalysis.m */; };
 		D1A3EA171C4F2485001D102C /* LinearRegression.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A3EA161C4F2485001D102C /* LinearRegression.m */; };
 		D1A3EA1A1C4F26B2001D102C /* chlkFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A3EA191C4F26B2001D102C /* chlkFunction.m */; };
-<<<<<<< Updated upstream
 		D1A3EA1C1C4F3BFE001D102C /* setData.txt in Resources */ = {isa = PBXBuildFile; fileRef = D1A3EA1B1C4F3BFE001D102C /* setData.txt */; };
 		ECA180C81CAB69B1005BC691 /* DAAverageCalculate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA180C71CAB69B1005BC691 /* DAAverageCalculate.m */; };
-=======
->>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,22 +55,13 @@
 		20B0DFFE1C4782C100D32EE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20B0DFFF1C4782C100D32EE8 /* DataAnalysisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataAnalysisTests.m; sourceTree = "<group>"; };
 		20B0E0091C4782D100D32EE8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		D19A511C1C8980ED0021EFC7 /* Data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Data.txt; sourceTree = "<group>"; };
-		D19A511E1C8982DF0021EFC7 /* dataAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataAnalysis.h; sourceTree = "<group>"; };
-		D19A511F1C8982DF0021EFC7 /* dataAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataAnalysis.m; sourceTree = "<group>"; };
-		D19A51211C8982EE0021EFC7 /* Data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Data.txt; sourceTree = "<group>"; };
-		D19A51231C8983180021EFC7 /* dataAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataAnalysis.h; sourceTree = "<group>"; };
-		D19A51241C8983180021EFC7 /* dataAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataAnalysis.m; sourceTree = "<group>"; };
 		D1A3EA151C4F2485001D102C /* LinearRegression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearRegression.h; sourceTree = "<group>"; };
 		D1A3EA161C4F2485001D102C /* LinearRegression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearRegression.m; sourceTree = "<group>"; };
 		D1A3EA181C4F26B2001D102C /* chlkFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chlkFunction.h; sourceTree = "<group>"; };
 		D1A3EA191C4F26B2001D102C /* chlkFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chlkFunction.m; sourceTree = "<group>"; };
-<<<<<<< Updated upstream
 		D1A3EA1B1C4F3BFE001D102C /* setData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = setData.txt; sourceTree = "<group>"; };
 		ECA180C61CAB69B1005BC691 /* DAAverageCalculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAverageCalculate.h; sourceTree = "<group>"; };
 		ECA180C71CAB69B1005BC691 /* DAAverageCalculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAverageCalculate.m; sourceTree = "<group>"; };
-=======
->>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20B0E00A1C4782D100D32EE8 /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,15 +173,9 @@
 				D1A3EA161C4F2485001D102C /* LinearRegression.m */,
 				D1A3EA181C4F26B2001D102C /* chlkFunction.h */,
 				D1A3EA191C4F26B2001D102C /* chlkFunction.m */,
-				D19A511E1C8982DF0021EFC7 /* dataAnalysis.h */,
-				D19A511F1C8982DF0021EFC7 /* dataAnalysis.m */,
-				D19A51231C8983180021EFC7 /* dataAnalysis.h */,
-				D19A51241C8983180021EFC7 /* dataAnalysis.m */,
-				D19A511C1C8980ED0021EFC7 /* Data.txt */,
-				D19A51211C8982EE0021EFC7 /* Data.txt */,
+				D1A3EA1B1C4F3BFE001D102C /* setData.txt */,
 			);
 			path = LinearRegression;
-<<<<<<< Updated upstream
 			sourceTree = "<group>";
 		};
 		ECA180C51CAB6981005BC691 /* MeanAnalysis */ = {
@@ -209,8 +185,6 @@
 				ECA180C71CAB69B1005BC691 /* DAAverageCalculate.m */,
 			);
 			path = MeanAnalysis;
-=======
->>>>>>> Stashed changes
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20B0DFEF1C4782C100D32EE8 /* Main.storyboard in Resources */,
-				D19A511D1C8980ED0021EFC7 /* Data.txt in Resources */,
-				D19A51221C8982EE0021EFC7 /* Data.txt in Resources */,
+				D1A3EA1C1C4F3BFE001D102C /* setData.txt in Resources */,
 				20681B611C47C9F30071A488 /* testSet.txt in Resources */,
 				20B0DFF41C4782C100D32EE8 /* LaunchScreen.xib in Resources */,
 				20075FBC1C589BB600CDC45F /* data.txt in Resources */,
@@ -320,8 +293,6 @@
 			files = (
 				20B0DFEC1C4782C100D32EE8 /* ViewController.m in Sources */,
 				0F30FF321C4E58B00071EF62 /* DAClustering.m in Sources */,
-				D19A51251C8983180021EFC7 /* dataAnalysis.m in Sources */,
-				D19A51201C8982DF0021EFC7 /* dataAnalysis.m in Sources */,
 				20AB60341C48BC6700922C6D /* LogRegression.m in Sources */,
 				D1A3EA1A1C4F26B2001D102C /* chlkFunction.m in Sources */,
 				D1A3EA171C4F2485001D102C /* LinearRegression.m in Sources */,

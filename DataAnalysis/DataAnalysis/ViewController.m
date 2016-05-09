@@ -11,7 +11,6 @@
 #import "LogRegression.h"
 #import "DAClustering.h"
 #import "LinearRegression.h"
-#import "dataAnalysis.h"
 #define N 3
 
 
@@ -73,9 +72,6 @@
     printf("\n######## 下面是线性回归部分 ########\n");
     /*线性归回部分*/
     
-    loadLineData(dataX, dataY);
-    analysis(dataX,dataY);
-    function(254.7,29.3);
 
 }
 
