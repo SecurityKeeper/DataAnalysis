@@ -17,4 +17,6 @@ NSArray* storGradAscent(NSArray* arrIn,int rows,int cols,NSArray* labels,int num
 float pi(float x,int k);//泊松分布
 
 float likeliHoodRatioTest(NSArray *data,NSArray *label,NSArray *weights,int cols);
+
+float checkData(NSArray* data);
 #endif /* defined(__DataAnalysis__LogRegression__) */
