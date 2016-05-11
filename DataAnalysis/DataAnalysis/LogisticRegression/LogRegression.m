@@ -28,17 +28,31 @@ int loadData(NSMutableArray *data,NSMutableArray *labels) {
         }
         [labels addObject:@([[compArr lastObject]floatValue])];
     }
-    
-//    FILE *file = fopen([path cStringUsingEncoding:NSASCIIStringEncoding], "r");
-//    while (!feof(file)) {
-//        fscanf(file, "%f %f %f ", &x1, &x2, &label);
-//        [data addObject:@(1.0)];
-//        [data addObject:@(x1)];
-//        [data addObject:@(x2)];
-//        [labels addObject:@(label)];
-//    }
     return cols;
 }
+
+NSArray *loadDataFromFile()
+{
+    NSMutableArray *data = [[NSMutableArray alloc]init];
+    
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"testSet" ofType:@"txt"];
+    NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSMutableArray *lineArr = [NSMutableArray arrayWithArray:[content componentsSeparatedByString:@"\r\n"]];
+    [lineArr removeLastObject];
+    for (NSString *line in lineArr) {
+        NSArray *compArr = [line componentsSeparatedByString:@"\t"];
+        NSMutableArray *tmp = [[NSMutableArray alloc]init];
+//        [tmp addObject:@(1.0)];
+        
+        for (int i=0; i<compArr.count; i++) {
+            [tmp addObject:@([compArr[i] floatValue])];
+        }
+        [data addObject:tmp];
+    }
+    return data;
+}
+
+//int setupData(NSArray *dataSet)
 
 float sigmoid(float x) {
     return 1.0/(1.0 + exp(-x));
@@ -80,6 +94,24 @@ NSArray* storGradAscent(NSArray* arrIn,int rows,int cols,NSArray* labels,int num
     return weights;
 }
 
+NSArray* gradientAscent(NSArray *arrIn,int numIter)
+{
+    int rows = arrIn.count;
+    NSArray *row = [arrIn objectAtIndex:0];
+    int cols = row.count;
+    
+    NSMutableArray *dataArr = [[NSMutableArray alloc]init];
+    NSMutableArray *labels = [[NSMutableArray alloc]init];
+    for (NSArray *arr in arrIn) {
+        [dataArr addObject:@(1.0)];
+        for (int i=0; i<arr.count-1; i++) {
+            [dataArr addObject:@([[arr objectAtIndex:i]floatValue])];
+        }
+        [labels addObject:@([[arr lastObject]floatValue])];
+    }
+    return storGradAscent(dataArr, rows, cols, labels, numIter);
+}
+
 //likeliHood ratio test
 float pi(float x,int k) {
     long fac = 1;
@@ -89,7 +121,7 @@ float pi(float x,int k) {
     return pow(x, k)*exp(-x)/fac;
 }
 
-float likeliHoodRatioTest(NSArray *data,NSArray *label,NSArray *weights,int k) {
+bool likeliHoodRatioTest(NSArray *data,NSArray *label,NSArray *weights,int k) {
     int n = (int)label.count;
     int n0 = 0,n1 = 0;
     for (int i = 0; i<n; i++) {
@@ -112,38 +144,75 @@ float likeliHoodRatioTest(NSArray *data,NSArray *label,NSArray *weights,int k) {
     G = G - (n1*log(n1) + n0*log(n0) - n*log(n));
     G *= 2;
     NSLog(@"n0 = %d,n1 = %d,n = %d,G = %f",n0,n1,n,G);
-    return G;
+    
+    if (G > 5.991) {//X0.05(2) = 5.991
+        NSLog(@"逻辑回归模型合理");
+        return true;
+    } else {
+        NSLog(@"逻辑回归模型不合理");
+        return false;
+    }
 }
 
-float checkData(NSArray* data) {
-    NSLog(@"---------------------------------------------");
-    NSMutableArray *dataIn = [[NSMutableArray alloc]init];
-    NSMutableArray *label = [[NSMutableArray alloc]init];
+bool likelyHoodRatioCheck(NSArray *arrIn,NSArray *weights)
+{
+    NSArray *row = [arrIn objectAtIndex:0];
+    int cols = row.count;
+    NSMutableArray *dataArr = [[NSMutableArray alloc]init];
+    NSMutableArray *labels = [[NSMutableArray alloc]init];
+    for (NSArray *arr in arrIn) {
+        [dataArr addObject:@(1.0)];
+        for (int i=0; i<arr.count-1; i++) {
+            [dataArr addObject:@([[arr objectAtIndex:i]floatValue])];
+        }
+        [labels addObject:@([[arr lastObject]floatValue])];
+    }
     
-    int cols = loadData(dataIn, label);
-    NSLog(@"%lu",(unsigned long)data.count);
-    int rows = (int)data.count/cols;
-    NSArray *weights = storGradAscent(data, rows, cols, label, 500);
-    
-    //    for (id weight in weights) {
-    //        NSLog(@"%f",[weight floatValue]);
-    //    }
+    return likeliHoodRatioTest(dataArr, labels, weights, cols);
+}
+
+float checkData(NSArray *weights,NSArray* data) {
     if (data.count==0||(data.count != weights.count - 1)) {
         NSLog(@"参数个数错误");
         return 0;
     }
-    float G = likeliHoodRatioTest(dataIn, label,weights,cols);
-    if (G > 5.991) {//X0.05(2) = 5.991
-        NSLog(@"逻辑回归模型合理");
-        float x = [[weights objectAtIndex:0]floatValue];
-        for (int i=0; i<weights.count; i++) {
-            float w = [[weights objectAtIndex:i]floatValue];
-            float d = [[data objectAtIndex:i]floatValue];
-            x += w*d;
-        }
-        return sigmoid(x);
-    } else {
-        NSLog(@"逻辑回归模型不合理");
-        return 0;
+    float x = [[weights objectAtIndex:0]floatValue];
+    for (int i=0; i<weights.count; i++) {
+        float w = [[weights objectAtIndex:i]floatValue];
+        float d = [[data objectAtIndex:i]floatValue];
+        x += w*d;
     }
+    return sigmoid(x);
+    
+//    NSLog(@"---------------------------------------------");
+//    NSMutableArray *dataIn = [[NSMutableArray alloc]init];
+//    NSMutableArray *label = [[NSMutableArray alloc]init];
+//    
+//    int cols = loadData(dataIn, label);
+//    NSLog(@"%lu",(unsigned long)data.count);
+//    int rows = (int)data.count/cols;
+//    NSArray *weights = storGradAscent(data, rows, cols, label, 500);
+//    
+//    //    for (id weight in weights) {
+//    //        NSLog(@"%f",[weight floatValue]);
+//    //    }
+//    if (data.count==0||(data.count != weights.count - 1)) {
+//        NSLog(@"参数个数错误");
+//        return 0;
+//    }
+//    float G = likeliHoodRatioTest(dataIn, label,weights,cols);
+//    if (G > 5.991) {//X0.05(2) = 5.991
+//        NSLog(@"逻辑回归模型合理");
+//        float x = [[weights objectAtIndex:0]floatValue];
+//        for (int i=0; i<weights.count; i++) {
+//            float w = [[weights objectAtIndex:i]floatValue];
+//            float d = [[data objectAtIndex:i]floatValue];
+//            x += w*d;
+//        }
+//        return sigmoid(x);
+//    } else {
+//        NSLog(@"逻辑回归模型不合理");
+//        return 0;
+//    }
+    return 0;
 }

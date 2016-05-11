@@ -8,15 +8,31 @@
 #ifndef __DataAnalysis__LogRegression__
 #define __DataAnalysis__LogRegression__
 
-int loadData(NSMutableArray *data,NSMutableArray *labels);
+NSArray *loadDataFromFile();
 
 float sigmoid(float x);
 
-NSArray* storGradAscent(NSArray* arrIn,int rows,int cols,NSArray* labels,int numIter);
-
 float pi(float x,int k);//泊松分布
 
-float likeliHoodRatioTest(NSArray *data,NSArray *label,NSArray *weights,int cols);
+/**
+ arrIn为数据库数据，numIter为迭代次数.
+ weights为模型系数（由gradientAscent返回）
+ likelyHoodRatioCheck返回true表示模型可信
+ checkData返回新数据可信的概率
+ 
+ 步骤：1、先用数据库数据调用gradientAscent得到模型系数weights
+      2、再调用likelyHoodRatioCheck检验模型，模型可信继续第3步，否则返回
+      3、调用checkData检验新数据
+ 
+ arrIn格式：
+ NSArray *data1 = @[@[X,Y,L],@[]...;
+ X Y 为某一维的值
+ L为分类结果，只能为0或1
+ */
 
-float checkData(NSArray* data);
+NSArray* gradientAscent(NSArray *arrIn,int numIter);
+
+bool likelyHoodRatioCheck(NSArray *arrIn,NSArray *weights);
+
+float checkData(NSArray *weights,NSArray* data);
 #endif /* defined(__DataAnalysis__LogRegression__) */

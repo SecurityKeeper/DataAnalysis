@@ -25,21 +25,21 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     NSLog(@"---------------------------------------------");
-    NSMutableArray *data = [[NSMutableArray alloc]init];
-    NSMutableArray *label = [[NSMutableArray alloc]init];
-    NSMutableArray *dataX = [[NSMutableArray alloc]init];
-    NSMutableArray *dataY = [[NSMutableArray alloc]init];
+//    
+    NSArray *data = loadDataFromFile();
+    NSArray *weights = gradientAscent(data, 500);
+    float G = likelyHoodRatioCheck(data,weights);
     
-    int cols = loadData(data, label);
-    NSLog(@"%lu",(unsigned long)data.count);
-    int rows = (int)data.count/cols;
-    NSArray *weights = storGradAscent(data, rows, cols, label, 500);
-   
+    
+//    int cols = loadData(data, label);
+//    int rows = (int)data.count/cols;
+//    NSArray *weights = storGradAscent(data, rows, cols, label, 500);
+//
 //    for (id weight in weights) {
 //        NSLog(@"%f",[weight floatValue]);
 //    }
-    
-    float G = likeliHoodRatioTest(data, label,weights,cols);
+//    
+//    float G = likeliHoodRatioTest(data, label,weights,cols);
     if (G > 5.991) {//X0.05(2) = 5.991
         NSLog(@"逻辑回归模型合理");
     } else {
