@@ -183,36 +183,4 @@ float checkData(NSArray* data) {
         x += w*d;
     }
     return sigmoid(x);
-    
-//    NSLog(@"---------------------------------------------");
-//    NSMutableArray *dataIn = [[NSMutableArray alloc]init];
-//    NSMutableArray *label = [[NSMutableArray alloc]init];
-//    
-//    int cols = loadData(dataIn, label);
-//    NSLog(@"%lu",(unsigned long)data.count);
-//    int rows = (int)data.count/cols;
-//    NSArray *weights = storGradAscent(data, rows, cols, label, 500);
-//    
-//    //    for (id weight in weights) {
-//    //        NSLog(@"%f",[weight floatValue]);
-//    //    }
-//    if (data.count==0||(data.count != weights.count - 1)) {
-//        NSLog(@"参数个数错误");
-//        return 0;
-//    }
-//    float G = likeliHoodRatioTest(dataIn, label,weights,cols);
-//    if (G > 5.991) {//X0.05(2) = 5.991
-//        NSLog(@"逻辑回归模型合理");
-//        float x = [[weights objectAtIndex:0]floatValue];
-//        for (int i=0; i<weights.count; i++) {
-//            float w = [[weights objectAtIndex:i]floatValue];
-//            float d = [[data objectAtIndex:i]floatValue];
-//            x += w*d;
-//        }
-//        return sigmoid(x);
-//    } else {
-//        NSLog(@"逻辑回归模型不合理");
-//        return 0;
-//    }
-    return 0;
 }
