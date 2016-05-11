@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LogRegression.h"
 
+NSArray *weights;
 /*
     从文件加载数据至数组，testSet为训练数据集,返回特征数
  */
@@ -146,15 +147,13 @@ bool likeliHoodRatioTest(NSArray *data,NSArray *label,NSArray *weights,int k) {
     NSLog(@"n0 = %d,n1 = %d,n = %d,G = %f",n0,n1,n,G);
     
     if (G > 5.991) {//X0.05(2) = 5.991
-        NSLog(@"逻辑回归模型合理");
         return true;
     } else {
-        NSLog(@"逻辑回归模型不合理");
         return false;
     }
 }
 
-bool likelyHoodRatioCheck(NSArray *arrIn,NSArray *weights)
+bool likelyHoodRatioCheck(NSArray *arrIn)
 {
     NSArray *row = [arrIn objectAtIndex:0];
     int cols = row.count;
@@ -168,17 +167,18 @@ bool likelyHoodRatioCheck(NSArray *arrIn,NSArray *weights)
         [labels addObject:@([[arr lastObject]floatValue])];
     }
     
+    weights = gradientAscent(arrIn, 500);
     return likeliHoodRatioTest(dataArr, labels, weights, cols);
 }
 
-float checkData(NSArray *weights,NSArray* data) {
+float checkData(NSArray* data) {
     if (data.count==0||(data.count != weights.count - 1)) {
         NSLog(@"参数个数错误");
         return 0;
     }
     float x = [[weights objectAtIndex:0]floatValue];
-    for (int i=0; i<weights.count; i++) {
-        float w = [[weights objectAtIndex:i]floatValue];
+    for (int i=0; i<data.count; i++) {
+        float w = [[weights objectAtIndex:i+1]floatValue];
         float d = [[data objectAtIndex:i]floatValue];
         x += w*d;
     }

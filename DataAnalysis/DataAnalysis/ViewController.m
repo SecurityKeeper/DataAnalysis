@@ -27,9 +27,14 @@
     NSLog(@"---------------------------------------------");
 //    
     NSArray *data = loadDataFromFile();
-    NSArray *weights = gradientAscent(data, 500);
-    float G = likelyHoodRatioCheck(data,weights);
-    
+//    NSArray *weights = gradientAscent(data, 500);
+    bool G = likelyHoodRatioCheck(data);
+    if (G) {
+        NSLog(@"逻辑回归模型合理");
+    } else {
+        NSLog(@"逻辑回归模型不合理");
+        return;
+    }
     
 //    int cols = loadData(data, label);
 //    int rows = (int)data.count/cols;
@@ -40,11 +45,9 @@
 //    }
 //    
 //    float G = likeliHoodRatioTest(data, label,weights,cols);
-    if (G > 5.991) {//X0.05(2) = 5.991
-        NSLog(@"逻辑回归模型合理");
-    } else {
-        NSLog(@"逻辑回归模型不合理");
-    }
+    
+    NSArray *newData = @[@100,@2];
+    float val = checkData(newData);
     NSLog(@"---------------------------------------------");
 //    float w0 = [weights[0] floatValue];
 //    float w1 = [weights[1] floatValue];

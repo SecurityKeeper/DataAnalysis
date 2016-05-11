@@ -20,9 +20,9 @@ float pi(float x,int k);//泊松分布
  likelyHoodRatioCheck返回true表示模型可信
  checkData返回新数据可信的概率
  
- 步骤：1、先用数据库数据调用gradientAscent得到模型系数weights
-      2、再调用likelyHoodRatioCheck检验模型，模型可信继续第3步，否则返回
-      3、调用checkData检验新数据
+ 步骤：
+      1、再调用likelyHoodRatioCheck检验模型，模型可信继续第2步，否则返回
+      2、调用checkData检验新数据
  
  arrIn格式：
  NSArray *data1 = @[@[X,Y,L],@[]...;
@@ -30,9 +30,9 @@ float pi(float x,int k);//泊松分布
  L为分类结果，只能为0或1
  */
 
-NSArray* gradientAscent(NSArray *arrIn,int numIter);
+//NSArray* gradientAscent(NSArray *arrIn,int numIter);
 
-bool likelyHoodRatioCheck(NSArray *arrIn,NSArray *weights);
+bool likelyHoodRatioCheck(NSArray *arrIn);
 
-float checkData(NSArray *weights,NSArray* data);
+float checkData(NSArray* data);
 #endif /* defined(__DataAnalysis__LogRegression__) */
