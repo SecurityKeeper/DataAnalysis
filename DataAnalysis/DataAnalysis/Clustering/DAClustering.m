@@ -125,68 +125,70 @@ static DAClustering *clusterInstance = nil;
 
 - (NSArray *)clusteringData:(NSArray *)data type:(kClusteringType)type
 {
-    NSMutableArray *centerArray = [NSMutableArray array];
-    NSMutableArray *tempArray = [NSMutableArray array];
-    NSMutableArray *sortDataArray;
-    long kValue = [self getTargetKValue:data];
-    for (long i = 0; i < kValue; i++) {
-        for (long j = i; j < data.count; j++) {
-            if (![centerArray containsObject:[data objectAtIndex:j]]) {
-                [centerArray addObject:[data objectAtIndex:j]];
+    @autoreleasepool {
+        NSMutableArray *centerArray = [NSMutableArray array];
+        NSMutableArray *tempArray = [NSMutableArray array];
+        NSMutableArray *sortDataArray;
+        long kValue = [self getTargetKValue:data];
+        for (long i = 0; i < kValue; i++) {
+            for (long j = i; j < data.count; j++) {
+                if (![centerArray containsObject:[data objectAtIndex:j]]) {
+                    [centerArray addObject:[data objectAtIndex:j]];
+                    break;
+                }
+            }
+        }
+        while (![tempArray isEqual:centerArray]) {
+            tempArray = [NSMutableArray arrayWithArray:centerArray];
+            sortDataArray = [NSMutableArray arrayWithCapacity:centerArray.count];
+            for (int i = 0; i < centerArray.count; i++) {
+                [sortDataArray addObject:[NSMutableArray array]];
+            }
+            for (NSDictionary *item in data) {
+                float minDis = MAXFLOAT;
+                long index = 0;
+                for (long i = 0; i < tempArray.count; i++) {
+                    float distance = [self calculateDistance:item Two:[tempArray objectAtIndex:i]];
+                    if (distance <= minDis) {
+                        minDis = distance;
+                        index = i;
+                    }
+                }
+                NSMutableArray *updateArray = [sortDataArray objectAtIndex:index];
+                if (updateArray == nil) {
+                    updateArray = [NSMutableArray array];
+                }
+                [updateArray addObject:item];
+            }
+            centerArray = [self reCenterArray:sortDataArray];
+        }
+        
+        switch (type) {
+            case kClusteringType_Grouped:
+            {
+                return sortDataArray;
+            }
                 break;
-            }
-        }
-    }
-    while (![tempArray isEqual:centerArray]) {
-        tempArray = [NSMutableArray arrayWithArray:centerArray];
-        sortDataArray = [NSMutableArray arrayWithCapacity:centerArray.count];
-        for (int i = 0; i < centerArray.count; i++) {
-            [sortDataArray addObject:[NSMutableArray array]];
-        }
-        for (NSDictionary *item in data) {
-            float minDis = MAXFLOAT;
-            long index = 0;
-            for (long i = 0; i < tempArray.count; i++) {
-                float distance = [self calculateDistance:item Two:[tempArray objectAtIndex:i]];
-                if (distance <= minDis) {
-                    minDis = distance;
-                    index = i;
+            case kClusteringType_Plain:
+            {
+                NSMutableArray *retArray = [NSMutableArray array];
+                long clusterNum = 1;
+                for (NSMutableArray *clusterArray in sortDataArray) {
+                    for (NSDictionary *item in clusterArray) {
+                        NSMutableDictionary *tempItem = [NSMutableDictionary dictionaryWithDictionary:item];
+                        [tempItem setObject:[NSNumber numberWithLong:clusterNum] forKey:@"cluster"];
+                        [retArray addObject:tempItem];
+                    }
+                    clusterNum++;
                 }
+                
+                return retArray;
             }
-            NSMutableArray *updateArray = [sortDataArray objectAtIndex:index];
-            if (updateArray == nil) {
-                updateArray = [NSMutableArray array];
-            }
-            [updateArray addObject:item];
+                break;
+                
+            default:
+                break;
         }
-        centerArray = [self reCenterArray:sortDataArray];
-    }
-    
-    switch (type) {
-        case kClusteringType_Grouped:
-        {
-            return sortDataArray;
-        }
-            break;
-        case kClusteringType_Plain:
-        {
-            NSMutableArray *retArray = [NSMutableArray array];
-            long clusterNum = 1;
-            for (NSMutableArray *clusterArray in sortDataArray) {
-                for (NSDictionary *item in clusterArray) {
-                    NSMutableDictionary *tempItem = [NSMutableDictionary dictionaryWithDictionary:item];
-                    [tempItem setObject:[NSNumber numberWithLong:clusterNum] forKey:@"cluster"];
-                    [retArray addObject:tempItem];
-                }
-                clusterNum++;
-            }
-            
-            return retArray;
-        }
-            break;
-            
-        default:
-            break;
     }
 }
 
@@ -197,13 +199,13 @@ static DAClustering *clusterInstance = nil;
     float weight = 0.0;
     NSMutableArray *combinedData = [NSMutableArray arrayWithArray:dataSet];
     [combinedData addObject:data];
-    long preKValue = [self getTargetKValue:dataSet];
-    long postKValue = [self getTargetKValue:combinedData];
-    if (preKValue != postKValue) {
-        weight = 1.0 / combinedData.count;
-    }
-    else
-    {
+//    long preKValue = [self getTargetKValue:dataSet];
+//    long postKValue = [self getTargetKValue:combinedData];
+//    if (preKValue != postKValue) {
+//        weight = 1.0 / combinedData.count;
+//    }
+//    else
+//    {
         NSArray *clusteredArray = [self clusteringData:combinedData type:kClusteringType_Grouped];
         for (NSArray *group in clusteredArray) {
             if ([group containsObject:data]) {
@@ -211,7 +213,7 @@ static DAClustering *clusterInstance = nil;
                 break;
             }
         }
-    }
+//    }
     return weight;
 }
 
