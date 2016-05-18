@@ -19,7 +19,7 @@
 
 架构图如下：
 
-![image](https://github.com/SecurityKeeper/DataMining/blob/master/ReadMe/architect.png)
+![image](https://github.com/SecurityKeeper/DataAnalysis/blob/master/ReadMe/arctect.png)
 
 ----------
 
@@ -28,9 +28,9 @@
 前三种分析方式的流程大体相似：都是传入数据－》构建模型－》模型校验－》分析数据。
 流程图如下：
 
-![image](https://github.com/SecurityKeeper/DataMining/blob/master/ReadMe/collecting.png)
+![image](https://github.com/SecurityKeeper/DataAnalysis/blob/master/ReadMe/flow1.png)
 
 聚类分析流程：传入数据－》构建聚合－》计算权重
 流程图如下：
 
-![image](https://github.com/SecurityKeeper/DataMining/blob/master/ReadMe/collecting.png)
+![image](https://github.com/SecurityKeeper/DataAnalysis/blob/master/ReadMe/flow2.png)
